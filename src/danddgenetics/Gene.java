@@ -10,7 +10,7 @@ public abstract class Gene
     
     public static final int MAX_RANDOM_SCALAR_VALUE = 20;
     
-    public enum Sex {MALE, FEMALE}
+    //public enum Sex {MALE, FEMALE}
     
     public final int value;
 	
@@ -44,10 +44,10 @@ public abstract class Gene
         return new MultiplierGene(multiplier);
     }
     
-    public static Sex getRandomSex()
+    /*public static Sex getRandomSex()
     {
         return rng.nextBoolean() ? Sex.MALE : Sex.FEMALE;
-    }
+    }*/
     
     public static void main(String[] args)
     {

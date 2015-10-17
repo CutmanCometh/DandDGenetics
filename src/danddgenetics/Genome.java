@@ -9,9 +9,9 @@ public class Genome
     private static final Random rng = new Random();
 
     public final Gene strength, dexterity, constitution, intelligence, wisdom, charisma;
-    public final Gene.Sex sex;
+    //public final Gene.Sex sex;
 
-    private Genome(Gene strength, Gene dexterity, Gene constitution, Gene intelligence, Gene wisdom, Gene charisma, Gene.Sex sex)
+    private Genome(Gene strength, Gene dexterity, Gene constitution, Gene intelligence, Gene wisdom, Gene charisma)
     {
         this.strength = strength;
         this.dexterity = dexterity;
@@ -19,7 +19,7 @@ public class Genome
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
-        this.sex = sex;
+        
     }
     
     /**
@@ -35,7 +35,7 @@ public class Genome
         intelligence = getGeneFromCombiningParents(father.intelligence, mother.intelligence);
         wisdom = getGeneFromCombiningParents(father.wisdom, mother.wisdom);
         charisma = getGeneFromCombiningParents(father.charisma, mother.charisma);
-        sex = Gene.getRandomSex();
+        //sex = Gene.getRandomSex();
     }
     
     /**
@@ -49,7 +49,31 @@ public class Genome
         intelligence = Gene.getRandomGene();
         wisdom = Gene.getRandomGene();
         charisma = Gene.getRandomGene();
-        sex = Gene.getRandomSex();
+        //sex = Gene.getRandomSex();
+    }
+    
+    public static Genome getRandomMaleGenome()
+    {
+        Gene strength = Gene.getRandomGene();
+        Gene dexterity = Gene.getRandomGene();
+        Gene constitution = Gene.getRandomGene();
+        Gene intelligence = Gene.getRandomGene();
+        Gene wisdom = Gene.getRandomGene();
+        Gene charisma = Gene.getRandomGene();
+        
+        return new Genome(strength, dexterity, constitution, intelligence, wisdom, charisma);
+    }
+    
+    public static Genome getRandomFemaleGenome()
+    {
+        Gene strength = Gene.getRandomGene();
+        Gene dexterity = Gene.getRandomGene();
+        Gene constitution = Gene.getRandomGene();
+        Gene intelligence = Gene.getRandomGene();
+        Gene wisdom = Gene.getRandomGene();
+        Gene charisma = Gene.getRandomGene();
+        
+        return new Genome(strength, dexterity, constitution, intelligence, wisdom, charisma);
     }
     
     /**
@@ -95,6 +119,6 @@ public class Genome
         Gene wisdom = rng.nextBoolean() ? father.wisdom : mother.wisdom;
         Gene charisma = rng.nextBoolean() ? father.charisma : mother.charisma;
         
-        return new Genome(strength, dexterity, constitution, intelligence, wisdom, charisma, null);//okay to pass null value to sex because this sex is not dependent on parents sex
+        return new Genome(strength, dexterity, constitution, intelligence, wisdom, charisma);//okay to pass null value to sex because this sex is not dependent on parents sex
     }
 }
