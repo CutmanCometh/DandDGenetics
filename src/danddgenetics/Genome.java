@@ -39,7 +39,7 @@ public class Genome
     }
     
     /**
-     * Gets a random genome
+     * Gets a random genome. Only for use in creating a random "first generation"
      */
     public Genome()
     {
